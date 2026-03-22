@@ -133,19 +133,6 @@ def main():
     # except Exception as e:
     #     logger.error(f"Indeed scraper failed: {str(e)}")
     
-    # Scrape LinkedIn
-    logger.info("\n" + "-" * 60)
-    logger.info("SCRAPING LINKEDIN")
-    logger.info("-" * 60)
-    try:
-        linkedin_scraper = LinkedInScraper(keywords=keywords, locations=locations, max_pages=2)
-        linkedin_jobs = linkedin_scraper.scrape_with_retry(max_retries=2)
-        all_jobs.extend(linkedin_jobs)
-        logger.info(f"LinkedIn: {len(linkedin_jobs)} jobs collected")
-        logger.info(f"Total jobs so far: {len(all_jobs)}")
-    except Exception as e:
-        logger.error(f"LinkedIn scraper failed: {str(e)}")
-    
     # Scrape Jobs.ac.uk
     logger.info("\n" + "-" * 60)
     logger.info("SCRAPING JOBS.AC.UK")
@@ -181,6 +168,19 @@ def main():
         logger.info(f"KTP Jobs: {len(ktp_jobs)} jobs collected")
     except Exception as e:
         logger.error(f"KTP scraper failed: {str(e)}")
+        
+    # Scrape LinkedIn
+    logger.info("\n" + "-" * 60)
+    logger.info("SCRAPING LINKEDIN")
+    logger.info("-" * 60)
+    try:
+        linkedin_scraper = LinkedInScraper(keywords=keywords, locations=locations, max_pages=2)
+        linkedin_jobs = linkedin_scraper.scrape_with_retry(max_retries=2)
+        all_jobs.extend(linkedin_jobs)
+        logger.info(f"LinkedIn: {len(linkedin_jobs)} jobs collected")
+        logger.info(f"Total jobs so far: {len(all_jobs)}")
+    except Exception as e:
+        logger.error(f"LinkedIn scraper failed: {str(e)}")
     
     # Remove duplicates
     unique_jobs = remove_duplicates(all_jobs)
