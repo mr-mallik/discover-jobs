@@ -199,15 +199,15 @@ def main():
     logger.info("=" * 60)
     
     # Send email notification
-    if unique_jobs:
-        logger.info("\n" + "-" * 60)
-        logger.info("SENDING EMAIL NOTIFICATION")
-        logger.info("-" * 60)
-        email_sent = send_job_email(unique_jobs, keywords, locations)
-        if email_sent:
-            logger.info("✅ Email notification sent successfully")
-        else:
-            logger.warning("⚠️ Failed to send email notification")
+    # if unique_jobs:
+    #     logger.info("\n" + "-" * 60)
+    #     logger.info("SENDING EMAIL NOTIFICATION")
+    #     logger.info("-" * 60)
+    #     email_sent = send_job_email(unique_jobs, keywords, locations)
+    #     if email_sent:
+    #         logger.info("✅ Email notification sent successfully")
+    #     else:
+    #         logger.warning("⚠️ Failed to send email notification")
     
     # Print sample of results
     if unique_jobs:
