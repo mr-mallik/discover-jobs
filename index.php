@@ -154,8 +154,8 @@ if ($selectedFile && file_exists($currentFilePath)) {
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <?= $index + 1 ?>
                             </td>
-                            <td class="px-6 py-4">
-                                <div class="text-sm font-medium text-gray-900 max-w-md">
+                            <td class="px-6 py-4 nonwrap">
+                                <div class="text-sm font-medium text-gray-900 max-w-md no-wrap">
                                     <?= htmlspecialchars($job['title'] ?? 'N/A') ?>
                                 </div>
                                 <?php if (!empty($job['description']) && strlen($job['description']) > 0): ?>
@@ -166,7 +166,7 @@ if ($selectedFile && file_exists($currentFilePath)) {
                                 <?php endif; ?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
+                                <div class="text-sm text-gray-900 text-ellipsis overflow-hidden max-w-xs">
                                     <?= htmlspecialchars($job['company'] ?? 'N/A') ?>
                                 </div>
                             </td>
